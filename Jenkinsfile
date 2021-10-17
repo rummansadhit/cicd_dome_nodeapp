@@ -13,6 +13,22 @@ pipeline{
             }
         }
 
+        stage('Build Docker Image'){
+            steps{
+                withCredentials([string(credentialsId: 'docker-pass', variable: 'docker-pass')]) {
+    
+                        sh "docker login -u rummansadhit -p ${docker-pass}"
+                        sh "docker push rummansadhit/nodetest:${Docker_tag}"
+                    
+                }
+            }
+        }
+
+
+
+
+
+
     }
     
 }
