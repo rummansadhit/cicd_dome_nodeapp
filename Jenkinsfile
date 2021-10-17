@@ -15,9 +15,9 @@ pipeline{
 
         stage('Push Docker Image'){
             steps{
-                withCredentials([string(credentialsId: 'docker-hub', variable: 'docker-pass-variable')]) {
+                withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerpwd')]) {
     
-                        sh "docker login -u rummansadhit -p ${docker-pass-variable}"
+                        sh "docker login -u rummansadhit -p ${dockerpwd}"
                         sh "docker push rummansadhit/nodetest:${Docker_tag}"
                     
                 }
