@@ -13,7 +13,7 @@ pipeline{
             }
         }
 
-        stage('Build Docker Image'){
+        stage('Push Docker Image'){
             steps{
                 withCredentials([string(credentialsId: 'docker-pass', variable: 'docker-pass')]) {
     
