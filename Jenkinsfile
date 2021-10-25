@@ -34,8 +34,8 @@ pipeline{
         }
 
         stage('deploy on k8s'){
-		{
-            sh '''
+		steps{
+           	sh '''
 
             REPO_NAME="nodetest"
 			ACR_LOGINSERVER="testrepo1995.azurecr.io"
