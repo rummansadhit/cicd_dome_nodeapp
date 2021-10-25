@@ -34,7 +34,7 @@ pipeline{
         }
 
         stage('deploy on k8s'){
-
+		{
             sh '''
 
             REPO_NAME="nodetest"
@@ -50,6 +50,7 @@ pipeline{
             helm --kube-context $KUBE_CONTEXT upgrade --install --force $NAME $HELM_CHART --set image.repository=$ACR_LOGINSERVER/$REPO_NAME --set image.tag=jenkins${BUILD_NUMBER}
 
             '''
+		}
 
             }
         }
